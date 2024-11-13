@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBed, FaBath, FaHome } from 'react-icons/fa';
+import Image from 'next/image'; // Import the Image component
 
 function Listings() {
   const listings = [
@@ -42,10 +43,12 @@ function Listings() {
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {listings.map((listing, index) => (
             <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img 
-                src={listing.image} 
-                alt={listing.title} 
-                className="w-full h-64 object-cover"
+              <Image
+                src={listing.image} // Image source
+                alt={listing.title} // Alt text
+                width={600} // Specify width
+                height={400} // Specify height
+                className="w-full h-64 object-cover" // Additional styling
               />
               <div className="p-6 text-left">
                 <h3 className="text-2xl font-semibold text-gray-700">{listing.title}</h3>

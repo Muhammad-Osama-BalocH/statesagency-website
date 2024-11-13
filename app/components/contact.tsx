@@ -8,14 +8,16 @@ function Contact() {
     message: '',
   });
 
-  const handleChange = (e: any) => {
+  // Specify the type for e as a ChangeEvent for input/textarea elements
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: any) => {
+  // Specify the type for e as a FormEvent for form submission
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent page reload
     if (formData.name && formData.email && formData.message) {
       alert("Your message has been sent!");
@@ -71,7 +73,7 @@ function Contact() {
                   onChange={handleChange}
                   placeholder="Your Message"
                   className="w-full p-4 bg-gray-100 text-gray-700 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500"
-                //   rows="6"
+                  rows={6}
                   required
                 />
               </div>
@@ -98,7 +100,7 @@ function Contact() {
             </div>
             <div className="mb-4">
               <h4 className="font-semibold text-gray-700">Office Location</h4>
-              <p className="text-gray-600">1234 Real Estate Blvd, Suite 567, City, karachi, Pakistan</p>
+              <p className="text-gray-600">1234 Real Estate Blvd, Suite 567, City, Karachi, Pakistan</p>
             </div>
           </div>
         </div>
